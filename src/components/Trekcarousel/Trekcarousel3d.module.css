@@ -1,0 +1,342 @@
+/* ─────────────────────────────────────────────────────
+   TrekCarousel3D.module.css
+
+   Page background : #f5f0e8  (warm sand)
+   Card background : #ffffff  (white)
+   Card layout     : image LEFT  |  details RIGHT
+───────────────────────────────────────────────────── */
+
+/* ── Section wrapper ──────────────────────────────── */
+.section {
+  background: #f5f0e8;
+  padding:    4rem 0 3rem;
+  overflow:   hidden;
+}
+
+/* ── Header text ──────────────────────────────────── */
+.header {
+  text-align:    center;
+  margin-bottom: 2.5rem;
+  padding:       0 1rem;
+}
+
+.eyebrow {
+  font-size:      0.62rem;
+  font-weight:    600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color:          #8b6f47;
+  margin:         0 0 0.4rem;
+}
+
+.heading {
+  font-size:   clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color:       #1a1208;
+  margin:      0 0 0.4rem;
+  line-height: 1.1;
+}
+
+.headingItalic {
+  font-style:  italic;
+  font-weight: 300;
+  color:       #6b8f71;
+}
+
+.subheading {
+  font-size: 0.85rem;
+  color:     #9a8878;
+}
+
+/* ── 3D Stage ─────────────────────────────────────────
+   perspective: gives the 3D depth illusion
+   The higher the value, the more subtle the depth.
+─────────────────────────────────────────────────────── */
+.stage {
+  width:              100%;
+  /* Taller so cards have vertical room for the arc */
+  height:             460px;
+  perspective:        1000px;
+  /* Dead centre — cards arc symmetrically up and back from this point */
+  perspective-origin: 50% 50%;
+  position:           relative;
+  cursor:             grab;
+  touch-action:       pan-y;
+}
+
+.stage:active {
+  cursor: grabbing;
+}
+
+/* ── Track ────────────────────────────────────────────
+   transform-style: preserve-3d is required so that
+   child cards actually move in 3D space.
+─────────────────────────────────────────────────────── */
+.track {
+  width:           100%;
+  height:          100%;
+  position:        relative;
+  transform-style: preserve-3d;
+}
+
+/* ── Card ─────────────────────────────────────────────
+   position: absolute + top/left 50% + translate(-50%)
+   centres every card at the same starting point.
+   The JS transform then moves each one into position.
+─────────────────────────────────────────────────────── */
+.card {
+  position:       absolute;
+  top:            50%;
+  left:           50%;
+  width:          360px;
+  height:         320px;
+  border-radius:  18px;
+  overflow:       hidden;
+  display:        flex;          /* image LEFT, details RIGHT */
+  flex-direction: row;
+  cursor:         pointer;
+  background:     #ffffff;
+  box-shadow:     0 8px 28px rgba(26, 18, 8, 0.12);
+
+  /* Smooth animation when switching slides */
+  transition:
+    transform  0.65s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity    0.65s ease,
+    filter     0.65s ease,
+    box-shadow 0.65s ease;
+}
+
+
+/* Active (centre) card gets a stronger shadow + green ring */
+.cardActive {
+  box-shadow:
+    0 24px 56px rgba(26, 18, 8, 0.2),
+    0 0 0 2px rgba(107, 143, 113, 0.4);
+}
+
+/* ── Image panel (left half of card) ─────────────────── */
+.imagePanel {
+  width:      140px;
+  flex-shrink: 0;
+  position:   relative;
+  overflow:   hidden;
+}
+
+.image {
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+  display:    block;
+  transition: transform 0.7s ease;
+}
+.info{
+ font-size: medium;
+ padding-top: 15px; 
+}
+/* Active card: image zooms in slightly */
+.cardActive .image {
+  transform: scale(1.06);
+}
+
+/* Diagonal white fade — blends image into detail panel */
+.imageFade {
+  position:   absolute;
+  inset:      0;
+  background: linear-gradient(105deg, transparent 62%, #ffffff 100%);
+}
+
+/* Difficulty label on the image */
+.diffBadge {
+  position:        absolute;
+  top:             12px;
+  left:            0;
+  font-size:       0.52rem;
+  font-weight:     700;
+  letter-spacing:  0.1em;
+  text-transform:  uppercase;
+  padding:         4px 10px 4px 8px;
+  border-radius:   0 20px 20px 0;
+  border:          1px solid currentColor;
+  border-left:     none;
+  background:      rgba(255, 255, 255, 0.9);
+}
+
+/* ── Info panel (right half of card) ─────────────────── */
+.infoPanel {
+  flex:           1;
+  padding:        1rem 1rem 1rem 1.4rem;
+  display:        flex;
+  flex-direction: column;
+  gap:            0.28rem;
+  position:       relative;
+  overflow:       hidden;
+}
+
+/* Thin green line on left edge of info panel */
+.infoPanel::before {
+  content:       "";
+  position:      absolute;
+  left:          0;
+  top:           18%;
+  height:        64%;
+  width:         2px;
+  border-radius: 2px;
+  background:    #6b8f71;
+  opacity:       0.3;
+}
+
+.location {
+  font-size:      0.6rem;
+  font-weight:    600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:          #9a8878;
+  margin:         0;
+}
+
+.trekName {
+  font-size:     1rem;
+  font-weight:   700;
+  color:         #1a1208;
+  margin:        0;
+  line-height:   1.2;
+  white-space:   nowrap;
+  overflow:      hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Star rating ──────────────────────────────────────── */
+.ratingRow {
+  display:     flex;
+  align-items: center;
+  gap:         3px;
+  font-size:   12px;
+}
+
+.ratingNum   { font-size: 0.7rem; font-weight: 600; color: #c8902a; margin-left: 2px; }
+.ratingCount { font-size: 0.62rem; color: #9a8878; }
+
+/* ── Stat chips (duration, difficulty) ───────────────── */
+.chips {
+  display: flex;
+  gap:     5px;
+}
+
+.chip {
+  font-size:     0.6rem;
+  font-weight:   600;
+  color:         #5a4a3a;
+  background:    #f5f0e8;
+  border-radius: 20px;
+  padding:       3px 8px;
+}
+
+/* ── Bottom row: price + book button ─────────────────── */
+.bottomRow {
+  display:         flex;
+  align-items:     flex-end;
+  justify-content: space-between;
+  margin-top:      auto;
+}
+
+.priceLabel {
+  font-size:      0.55rem;
+  color:          #9a8878;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin:         0;
+}
+
+.price {
+  font-size:   1.25rem;
+  font-weight: 700;
+  color:       #1a1208;
+  margin:      0;
+  line-height: 1;
+}
+
+.bookBtn {
+  font-size:      0.6rem;
+  font-weight:    600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding:        7px 12px;
+  border-radius:  20px;
+  border:         none;
+  cursor:         pointer;
+  background:     #1a1208;
+  color:          #f5f0e8;
+  transition:     background 0.2s, transform 0.15s;
+}
+
+.bookBtn:hover  { background: #3d2f1a; }
+.bookBtn:active { transform: scale(0.95); }
+
+/* ── Navigation bar ───────────────────────────────────── */
+.nav {
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  gap:             0.6rem;
+  margin-top:      3rem;
+  margin-bottom:  2rem;
+}
+
+.navBtn {
+  width:         38px;
+  height:        38px;
+  border-radius: 50%;
+  background:    rgba(26, 18, 8, 0.07);
+  border:        1px solid rgba(26, 18, 8, 0.14);
+  color:         #1a1208;
+  font-size:     1rem;
+  cursor:        pointer;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  transition:    background 0.2s, transform 0.15s;
+}
+
+.navBtn:hover  { background: rgba(26, 18, 8, 0.14); }
+.navBtn:active { transform: scale(0.92); }
+
+/* Dot indicators */
+.dot {
+  width:         7px;
+  height:        7px;
+  border-radius: 50%;
+  background:    rgba(26, 18, 8, 0.18);
+  border:        none;
+  cursor:        pointer;
+  padding:       0;
+  transition:    background 0.3s, transform 0.3s;
+}
+
+.dotActive {
+  background: #6b8f71;
+  transform:  scale(1.65);
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .card  { width: 300px; height: 300px; }
+  .imagePanel { width: 110px; }
+  .stage { height: 420px; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .card  { width: 260px; height: 300px; }
+  .imagePanel { width: 95px; }
+  .stage { height: 360px; perspective: 750px; }
+  .chips { display: none; }
+  .price { font-size: 1rem; }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .card  { transition: opacity 0.2s; }
+  .image { transition: none; }
+}
