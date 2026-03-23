@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { allPlaces } from "../../../constants";
+import { allPlaces } from "../../../constants/index.js";
 import "./Hero.css";
 import leftArrow from "../../assets/hero/left.png";
 import rightArrow from "../../assets/hero/right.png";
