@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ALL_TREKS, DIFFICULTY_CONFIG } from "../../../constants/index.js";
-import styles from "./TrekCarousel3D.module.css";
+import styles from './TrekCarousel3D.module.css';
 
 
 const SPREAD_X   = 305;  
