@@ -1,26 +1,36 @@
+// Add these imports at the top
+import kashmir from "../src/assets/hero/kashmir2.jpg";
+import ladakh from "../src/assets/hero/ladakh.jpg";
+import himachal from "../src/assets/hero/Himachal.jpg";
+import tungnath from "../src/assets/hero/tungnath.jpg";
+
+import greatLakes from "../src/assets/treks/greatKashmirlakes.webp";
+import ladakhTrek from "../src/assets/treks/ladakhTrek.webp";
+import triund from "../src/assets/treks/triund.jpg";
+import tungnathTrek from "../src/assets/treks/tungathTrek.jpg";
 const allPlaces = [
   {
     id: 1,
     name: "Kashmir",
-    image: "../src/assets/hero/kashmir2.jpg",
+    image: kashmir,
     title: `Walk through Kashmir's meadows, lakes, and timeless beauty.`
   },
   {
     id: 2,
     name: "Ladakh",
-    image: "../src/assets/hero/ladakh.jpg",
+    image: ladakh,
     title: `Where rugged mountains meet timeless adventure`
   },
   {
     id: 3,
     name: "Himachal",
-    image: "../src/assets/hero/Himachal.jpg",
+    image: himachal,
     title: "Where misty mountains and soulful trails await."
   },
   {
     id: 4,
     name: "Tungnath",
-    image: "../src/assets/hero/tungnath.jpg",
+    image: tungnath,
     title: "Walk above the clouds on the sacred trails of Tungnath."
   }
 ]
@@ -30,7 +40,7 @@ const ALL_TREKS = [
     id:         1,
     name:       "Kashmir Great Lakes",
     location:   "Kashmir, India",
-    image:      "../src/assets/treks/greatKashmirlakes.webp",
+    image:      greatLakes,
     price:      12999,
     duration:   "7 Days",
     difficulty: "Moderate",
@@ -42,7 +52,7 @@ const ALL_TREKS = [
     id:         2,
     name:       "Chadar Frozen River",
     location:   "Ladakh, India",
-    image:      "../src/assets/treks/ladakhTrek.webp",
+    image:      ladakhTrek,
     price:      18500,
     duration:   "9 Days",
     difficulty: "Hard",
@@ -54,7 +64,7 @@ const ALL_TREKS = [
     id:         3,
     name:       "Triund Trek",
     location:   "Himachal, India",
-    image:      "../src/assets/treks/triund.jpg",
+    image:      triund,
     price:      7999,
     duration:   "6 Days",
     difficulty: "Easy",
@@ -66,7 +76,7 @@ const ALL_TREKS = [
     id:         4,
     name:       "Tungnath Chandrashila",
     location:   "Uttarakhand, India",
-    image:      "../src/assets/treks/tungathTrek.jpg",
+    image:      tungnathTrek,
     price:      9500,
     duration:   "5 Days",
     difficulty: "Moderate",
