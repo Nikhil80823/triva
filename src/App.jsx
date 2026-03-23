@@ -5,7 +5,8 @@ import Footer from "./components/Footer/Footer"
 import Gallary from "./components/Gallary/Gallary"
 import HeroSection from "./components/HeroSection/HeroSection"
 import Navbar from "./components/navbar/Navbar"
-import TrekCarousel3D from "./components/Trekcarousel/Trekcarousel3d"
+import TrekCarousel3D from "./components/TrekCarousel/TrekCarousel3D";
+
 
 
 function App() {
