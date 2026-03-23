@@ -4,7 +4,7 @@ import Contact from "./components/ContactUs/Contact"
 import Footer from "./components/Footer/Footer"
 import Gallary from "./components/Gallary/Gallary"
 import HeroSection from "./components/HeroSection/HeroSection"
-import Navbar from "./components/navbar/Navbar"
+import Navbar from "./components/Navbar/Navbar"
 import TrekCarousel3D from "./components/TrekCarousel/TrekCarousel3D";
 
 
