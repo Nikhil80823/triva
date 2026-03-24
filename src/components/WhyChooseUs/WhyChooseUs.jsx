@@ -2,6 +2,7 @@ import React from "react";
 import "./WhyChooseUs.css";
 import { reasons } from "../../../constants";
 
+
 export default function WhyChooseUs() {
   return (
     <section id="WhyUs" className="why-section">

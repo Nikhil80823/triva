@@ -5,7 +5,7 @@ export default function WhatsAppFloat() {
   const [hovered, setHovered] = useState(false);
 
   const phone   = "8493825565"; // replace with your WhatsApp number
-  const message = encodeURIComponent("Hi! I'm interested in booking a trek with Triva. Can you help me?");
+  const message = encodeURIComponent("Hi! I'm interested in booking a trek with Trekora. Can you help me?");
   const url     = `https://wa.me/${phone}?text=${message}`;
 
   return (
