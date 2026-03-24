@@ -84,7 +84,6 @@ const Navbar = () => {
             smooth={true}
             offset={-88}
             duration={500}
-            className="btn"
             onClick={() => setMobileMenu(false)}
           >
             Contact Us
