@@ -61,3 +61,6 @@ a{
     padding: 14px 22px;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
