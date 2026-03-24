@@ -12,45 +12,44 @@ import "./Gallery.css";
 
 const Gallary = () => {
   return (
-    <div id="Gallary" className="gallary">
-      <div className="header">
-        <p className="eyebrow">CAPTURED MOMENTS</p>
-        <h2 className="heading">Trek Gallery </h2>
-        <h2>
+    // Outer section carries the dark background — full width, no max-width constraint
+    <section id="Gallary" style={{ background: "#0c1a0e", position: "relative" }}>
+      <div className="gallary">
+        <div className="header">
+          <p className="eyebrow">Captured Moments</p>
+          <h2 className="heading">Trek Gallery</h2>
           <em className="headingItalic">
-            “Captured Journeys from India’s Most Beautiful Trails.”
+            "Captured journeys from India's most beautiful trails."
           </em>
-        </h2>
-      </div>
-      <div className="top-grid">
-        <div className="md:col-span-3">
-          <div className="noisy" />
-          <img src={imgChadar} alt="grid-img-1" />
         </div>
-
-        <div className="md:col-span-6">
-          <div className="noisy" />
-          <img src={imgLakes} alt="grid-img-2" />
+ 
+        <div className="top-grid">
+          <div>
+            <div className="noisy" />
+            <img src={imgChadar} alt="Chadar trek" />
+          </div>
+          <div>
+            <div className="noisy" />
+            <img src={imgLakes} alt="Lakes trek" />
+          </div>
+          <div>
+            <div className="noisy" />
+            <img src={imgTriund} alt="Triund trek" />
+          </div>
         </div>
-
-        <div className="md:col-span-3">
-          <div className="noisy" />
-          <img src={imgTriund} alt="grid-img-5" />
-        </div>
-      </div>
-
-      <div className="bottom-grid">
-        <div className="md:col-span-8">
-          <div className="noisy" />
-          <img src={imgKashmir} alt="grid-img-3" />
-        </div>
-
-        <div className="md:col-span-4">
-          <div className="noisy" />
-          <img src={imgTungnath} alt="grid-img-4" />
+ 
+        <div className="bottom-grid">
+          <div>
+            <div className="noisy" />
+            <img src={imgKashmir} alt="Kashmir trek" />
+          </div>
+          <div>
+            <div className="noisy" />
+            <img src={imgTungnath} alt="Tungnath trek" />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

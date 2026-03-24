@@ -70,9 +70,9 @@
 .dot.active { background: #fff; transform: scale(1.5); }
 
 @media (max-width: 480px) {
-  .arrows { top: 47rem ;bottom: 4rem;left: 1rem  ; right: 1rem; display: flex; justify-content: space-between;}
+  .arrows {display:none; }
   .hero-text {
-  bottom: 14rem;
+  bottom: 10rem;
   left: 2rem;
 }
 .hero-explore{
@@ -83,5 +83,5 @@
 .hero-sub   { font-size: 0.9rem; opacity: 0.6; }
 }
 @media (max-width: 768px) {
-   .arrows { bottom: 1rem;left: 2rem  ; right: 2rem; display: flex; justify-content: space-between;}
+   .arrows { bottom: 2rem;left: 2rem  ; right: 2rem; display: flex; justify-content: space-between;}
 }
