@@ -69,14 +69,14 @@ function StarRow({ rating, reviews }) {
 
 function TrekCard({ trek, isActive, cardStyle, onClick }) {
   const diff = DIFFICULTY_CONFIG[trek.difficulty];
-
+ 
   return (
     <article
       className={`${styles.card} ${isActive ? styles.cardActive : ""}`}
       style={cardStyle}
       onClick={onClick}
     >
-     
+      {/* ── TOP: Image ── */}
       <div className={styles.imagePanel}>
         <img
           src={trek.image}
@@ -85,10 +85,9 @@ function TrekCard({ trek, isActive, cardStyle, onClick }) {
           loading="lazy"
           draggable={false}
         />
-        
+ 
         <div className={styles.imageFade} />
-
-        
+ 
         <span
           className={styles.diffBadge}
           style={{ color: diff.color, background: diff.bg, borderColor: diff.color }}
@@ -96,22 +95,24 @@ function TrekCard({ trek, isActive, cardStyle, onClick }) {
           {trek.difficulty}
         </span>
       </div>
-
-      
+ 
+      {/* ── BOTTOM: Info ── */}
       <div className={styles.infoPanel}>
-        <p className={styles.location}>{trek.location}</p>
+        <p className={styles.location}>
+          <span className={styles.locationDot} />
+          {trek.location}
+        </p>
         <h3 className={styles.trekName}>{trek.name}</h3>
-
+ 
         <StarRow rating={trek.rating} reviews={trek.reviews} />
-
-        
+ 
         <div className={styles.chips}>
           <span className={styles.chip}>⏱ {trek.duration}</span>
           <span className={styles.chip}>⛰ {trek.difficulty}</span>
         </div>
-        <div className={styles.info}>{trek.description}</div>
-
-        
+ 
+        <p className={styles.info}>{trek.description}</p>
+ 
         <div className={styles.bottomRow}>
           <div>
             <p className={styles.priceLabel}>From</p>
@@ -119,7 +120,7 @@ function TrekCard({ trek, isActive, cardStyle, onClick }) {
           </div>
           <button
             className={styles.bookBtn}
-            onClick={(e) => e.stopPropagation()} 
+            onClick={(e) => e.stopPropagation()}
           >
             Book now
           </button>

@@ -3,7 +3,7 @@
 
    Page background : #f5f0e8  (warm sand)
    Card background : #ffffff  (white)
-   Card layout     : image LEFT  |  details RIGHT
+   Card layout     : image TOP  |  details BOTTOM
 ───────────────────────────────────────────────────── */
 
 /* ── Section wrapper ──────────────────────────────── */
@@ -48,16 +48,11 @@
   color:     #9a8878;
 }
 
-/* ── 3D Stage ─────────────────────────────────────────
-   perspective: gives the 3D depth illusion
-   The higher the value, the more subtle the depth.
-─────────────────────────────────────────────────────── */
+/* ── 3D Stage ─────────────────────────────────────────*/
 .stage {
   width:              100%;
-  /* Taller so cards have vertical room for the arc */
-  height:             460px;
+  height:             520px;
   perspective:        1000px;
-  /* Dead centre — cards arc symmetrically up and back from this point */
   perspective-origin: 50% 50%;
   position:           relative;
   cursor:             grab;
@@ -68,10 +63,7 @@
   cursor: grabbing;
 }
 
-/* ── Track ────────────────────────────────────────────
-   transform-style: preserve-3d is required so that
-   child cards actually move in 3D space.
-─────────────────────────────────────────────────────── */
+/* ── Track ────────────────────────────────────────────*/
 .track {
   width:           100%;
   height:          100%;
@@ -80,25 +72,23 @@
 }
 
 /* ── Card ─────────────────────────────────────────────
-   position: absolute + top/left 50% + translate(-50%)
-   centres every card at the same starting point.
-   The JS transform then moves each one into position.
+   Tall card: image fills top 55%, info lives in bottom 45%
 ─────────────────────────────────────────────────────── */
 .card {
   position:       absolute;
   top:            50%;
   left:           50%;
-  width:          360px;
-  height:         320px;
-  border-radius:  18px;
+  width:          280px;
+  height:         420px;
+  border-radius:  22px;
   overflow:       hidden;
-  display:        flex;          /* image LEFT, details RIGHT */
-  flex-direction: row;
+  display:        flex;
+  flex-direction: column;   /* image TOP, info BOTTOM */
   cursor:         pointer;
   background:     #ffffff;
-  box-shadow:     0 8px 28px rgba(26, 18, 8, 0.12);
-
-  /* Smooth animation when switching slides */
+  box-shadow:
+    0 4px 8px  rgba(26, 18, 8, 0.08),
+    0 16px 40px rgba(26, 18, 8, 0.14);
   transition:
     transform  0.65s cubic-bezier(0.4, 0, 0.2, 1),
     opacity    0.65s ease,
@@ -106,20 +96,20 @@
     box-shadow 0.65s ease;
 }
 
-
-/* Active (centre) card gets a stronger shadow + green ring */
+/* Active (centre) card gets stronger shadow + green ring */
 .cardActive {
   box-shadow:
-    0 24px 56px rgba(26, 18, 8, 0.2),
-    0 0 0 2px rgba(107, 143, 113, 0.4);
+    0 24px 64px rgba(26, 18, 8, 0.22),
+    0 0 0 2.5px rgba(107, 143, 113, 0.5);
 }
 
-/* ── Image panel (left half of card) ─────────────────── */
+/* ── Image panel (top 55% of card) ───────────────────── */
 .imagePanel {
-  width:      140px;
+  width:    100%;
+  height:   55%;
   flex-shrink: 0;
-  position:   relative;
-  overflow:   hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .image {
@@ -129,73 +119,77 @@
   display:    block;
   transition: transform 0.7s ease;
 }
-.info{
- font-size: medium;
- padding-top: 15px; 
-}
-/* Active card: image zooms in slightly */
+
+/* Active card: subtle zoom */
 .cardActive .image {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
-/* Diagonal white fade — blends image into detail panel */
+/* Gradient fade at bottom of image blending into info panel */
 .imageFade {
   position:   absolute;
   inset:      0;
-  background: linear-gradient(105deg, transparent 62%, #ffffff 100%);
+  background: linear-gradient(
+    to bottom,
+    transparent 45%,
+    rgba(255, 255, 255, 0.15) 75%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
 }
 
-/* Difficulty label on the image */
+/* Difficulty badge — pill on top-left of image */
 .diffBadge {
   position:        absolute;
   top:             12px;
-  left:            0;
+  left:            12px;
   font-size:       0.52rem;
   font-weight:     700;
-  letter-spacing:  0.1em;
+  letter-spacing:  0.12em;
   text-transform:  uppercase;
-  padding:         4px 10px 4px 8px;
-  border-radius:   0 20px 20px 0;
+  padding:         4px 10px;
+  border-radius:   20px;
   border:          1px solid currentColor;
-  border-left:     none;
-  background:      rgba(255, 255, 255, 0.9);
+  background:      rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(4px);
 }
 
-/* ── Info panel (right half of card) ─────────────────── */
+/* ── Info panel (bottom 45% of card) ─────────────────── */
 .infoPanel {
   flex:           1;
-  padding:        1rem 1rem 1rem 1.4rem;
+  padding:        0.9rem 1.1rem 1rem;
   display:        flex;
   flex-direction: column;
-  gap:            0.28rem;
+  gap:            0.22rem;
   position:       relative;
-  overflow:       hidden;
-}
-
-/* Thin green line on left edge of info panel */
-.infoPanel::before {
-  content:       "";
-  position:      absolute;
-  left:          0;
-  top:           18%;
-  height:        64%;
-  width:         2px;
-  border-radius: 2px;
-  background:    #6b8f71;
-  opacity:       0.3;
+  background:     #ffffff;
+  /* Thin decorative top border stripe */
+  border-top:     3px solid #6b8f71;
 }
 
 .location {
-  font-size:      0.6rem;
+  font-size:      0.58rem;
   font-weight:    600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color:          #9a8878;
   margin:         0;
+  display:        flex;
+  align-items:    center;
+  gap:            4px;
+}
+
+/* Small dot before location text */
+.locationDot {
+  display:       inline-block;
+  width:         5px;
+  height:        5px;
+  border-radius: 50%;
+  background:    #6b8f71;
+  flex-shrink:   0;
 }
 
 .trekName {
-  font-size:     1rem;
+  font-size:     1.05rem;
   font-weight:   700;
   color:         #1a1208;
   margin:        0;
@@ -209,26 +203,40 @@
 .ratingRow {
   display:     flex;
   align-items: center;
-  gap:         3px;
+  gap:         2px;
   font-size:   12px;
+  margin-top:  1px;
 }
 
-.ratingNum   { font-size: 0.7rem; font-weight: 600; color: #c8902a; margin-left: 2px; }
-.ratingCount { font-size: 0.62rem; color: #9a8878; }
+.ratingNum   { font-size: 0.68rem; font-weight: 600; color: #c8902a; margin-left: 3px; }
+.ratingCount { font-size: 0.6rem;  color: #9a8878; }
 
 /* ── Stat chips (duration, difficulty) ───────────────── */
 .chips {
-  display: flex;
-  gap:     5px;
+  display:    flex;
+  gap:        5px;
+  margin-top: 2px;
 }
 
 .chip {
-  font-size:     0.6rem;
+  font-size:     0.58rem;
   font-weight:   600;
   color:         #5a4a3a;
   background:    #f5f0e8;
   border-radius: 20px;
   padding:       3px 8px;
+}
+
+/* ── Description ──────────────────────────────────────── */
+.info {
+  font-size:   0.68rem;
+  color:       #7a6a5a;
+  line-height: 1.45;
+  margin:      0;
+  display:     -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow:    hidden;
 }
 
 /* ── Bottom row: price + book button ─────────────────── */
@@ -237,10 +245,11 @@
   align-items:     flex-end;
   justify-content: space-between;
   margin-top:      auto;
+  padding-top:     0.4rem;
 }
 
 .priceLabel {
-  font-size:      0.55rem;
+  font-size:      0.52rem;
   color:          #9a8878;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -248,7 +257,7 @@
 }
 
 .price {
-  font-size:   1.25rem;
+  font-size:   1.2rem;
   font-weight: 700;
   color:       #1a1208;
   margin:      0;
@@ -258,9 +267,9 @@
 .bookBtn {
   font-size:      0.6rem;
   font-weight:    600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding:        7px 12px;
+  padding:        7px 13px;
   border-radius:  20px;
   border:         none;
   cursor:         pointer;
@@ -279,28 +288,27 @@
   align-items:     center;
   gap:             0.6rem;
   margin-top:      3rem;
-  margin-bottom:  2rem;
+  margin-bottom:   2rem;
 }
 
 .navBtn {
-  width:         38px;
-  height:        38px;
-  border-radius: 50%;
-  background:    rgba(26, 18, 8, 0.07);
-  border:        1px solid rgba(26, 18, 8, 0.14);
-  color:         #1a1208;
-  font-size:     1rem;
-  cursor:        pointer;
-  display:       flex;
-  align-items:   center;
+  width:           38px;
+  height:          38px;
+  border-radius:   50%;
+  background:      rgba(26, 18, 8, 0.07);
+  border:          1px solid rgba(26, 18, 8, 0.14);
+  color:           #1a1208;
+  font-size:       1rem;
+  cursor:          pointer;
+  display:         flex;
+  align-items:     center;
   justify-content: center;
-  transition:    background 0.2s, transform 0.15s;
+  transition:      background 0.2s, transform 0.15s;
 }
 
 .navBtn:hover  { background: rgba(26, 18, 8, 0.14); }
 .navBtn:active { transform: scale(0.92); }
 
-/* Dot indicators */
 .dot {
   width:         7px;
   height:        7px;
@@ -318,24 +326,19 @@
 }
 
 /* ── Responsive ───────────────────────────────────────── */
-
-/* Tablet */
 @media (max-width: 768px) {
-  .card  { width: 300px; height: 300px; }
-  .imagePanel { width: 110px; }
-  .stage { height: 420px; }
+  .card  { width: 250px; height: 380px; }
+  .stage { height: 480px; }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
-  .card  { width: 260px; height: 300px; }
-  .imagePanel { width: 95px; }
-  .stage { height: 360px; perspective: 750px; }
+  .card  { width: 220px; height: 340px; }
+  .stage { height: 400px; perspective: 750px; }
   .chips { display: none; }
   .price { font-size: 1rem; }
+  .info  {  }
 }
 
-/* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .card  { transition: opacity 0.2s; }
   .image { transition: none; }
