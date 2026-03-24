@@ -70,14 +70,14 @@
 .dot.active { background: #fff; transform: scale(1.5); }
 
 @media (max-width: 480px) {
-  .arrows { top: 40rem ;bottom: 4rem;left: 1rem  ; right: 1rem; display: flex; justify-content: space-between;}
+  .arrows { top: 47rem ;bottom: 4rem;left: 1rem  ; right: 1rem; display: flex; justify-content: space-between;}
   .hero-text {
-  bottom: 10rem;
-  left: 3rem;
+  bottom: 14rem;
+  left: 2rem;
 }
 .hero-explore{
-  left: 3rem;
-  bottom: 7rem;
+  left: 2rem;
+  bottom: 10rem;
 }
 .hero-title { font-size: 3.2rem; font-weight: 700; margin: 0.25rem 0; }
 .hero-sub   { font-size: 0.9rem; opacity: 0.6; }
