@@ -9,7 +9,7 @@ import TrekCarousel3D from "./components/TrekCarousel/TrekCarousel3D";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs"
 import Testimonials from "./components/Testimonials/Testimonials"
 import FAQ from "./components/Faq/Faq"
-import WhatsAppFloat from './components/WhatsAppFloat/WhatsAppFloat'
+
 
 
 
@@ -28,7 +28,6 @@ function App() {
     <FAQ/>
     <Contact/>
     <Footer/>
-    <WhatsAppFloat/>
     </>
   )
 }
