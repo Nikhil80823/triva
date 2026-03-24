@@ -13,7 +13,7 @@ const Footer = () => {
 
         {/* LEFT */}
         <div className="footer-brand">
-          <h2 className="logo">triva </h2>
+          <h2 className="logo">Trekora </h2>
           
           <p>
             Explore breathtaking destinations and plan your next adventure with Triva.
