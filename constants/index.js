@@ -121,9 +121,89 @@ const itineraryData = [
     desc: "Descend to base village and depart with unforgettable memories."
   }
 ];
+const reasons = [
+  {
+    icon: "🧭",
+    title: "Expert Local Guides",
+    desc: "Our guides are born and raised in the mountains. They know every trail, every weather pattern, every hidden viewpoint that no map shows.",
+  },
+  {
+    icon: "🛡️",
+    title: "Safety First, Always",
+    desc: "Certified first-aid teams, satellite communication, acclimatization protocols, and emergency evacuation plans on every trek.",
+  },
+  {
+    icon: "🌿",
+    title: "Responsible Trekking",
+    desc: "Leave No Trace principles on every route. We support local communities, hire local staff, and actively restore mountain ecosystems.",
+  },
+  {
+    icon: "🎒",
+    title: "All-Inclusive Packages",
+    desc: "Gear rental, meals, permits, transport, accommodation — every detail is handled. You just show up and trek.",
+  },
+  {
+    icon: "👥",
+    title: "Small Group Sizes",
+    desc: "Maximum 12 trekkers per group. More personal attention, lighter environmental footprint, and a deeper connection with the mountains.",
+  },
+  {
+    icon: "⭐",
+    title: "4.9★ Rated Experience",
+    desc: "Over 1,200 trekkers have trusted us. Our reviews speak for themselves — consistently rated the best trekking operator in the region.",
+  },
+];
+const testimonialsData = [
+  {
+    name: "Arjun Mehta",
+    location: "Mumbai, India",
+    trek: "Kashmir Great Lakes",
+    rating: 5,
+    text: "Absolutely life-changing. The guides knew every trail, every hidden camp spot. Waking up to those alpine lakes at sunrise — I still can't believe it was real. Triva made every detail seamless.",
+    initials: "AM",
+  },
+  {
+    name: "Priya Sharma",
+    location: "Delhi, India",
+    trek: "Chadar Trek",
+    rating: 5,
+    text: "Walking on a frozen river in -20°C sounds crazy — and it is, beautifully so. The team handled everything from gear to acclimatization. I felt safe the entire time. Will be booking again.",
+    initials: "PS",
+  },
+  {
+    name: "Rohit Nair",
+    location: "Bangalore, India",
+    trek: "Triund Trek",
+    rating: 4,
+    text: "Perfect first trek. Not too hard, incredibly rewarding. The views of the Dhauladhar range from the top are something no photograph can capture. The crew was warm, knowledgeable, and fun.",
+    initials: "RN",
+  },
+  {
+    name: "Sneha Kapoor",
+    location: "Pune, India",
+    trek: "Tungnath Trek",
+    rating: 5,
+    text: "Tungnath in autumn is a dream — red and gold everywhere. Triva's small group format meant it felt personal, never crowded. The storytelling around the campfire was the highlight of my trip.",
+    initials: "SK",
+  },
+  {
+    name: "Vikram Bose",
+    location: "Kolkata, India",
+    trek: "Valley of Flowers",
+    rating: 5,
+    text: "I've done treks with three different operators. Triva is in a different league. The logistics, the food, the guides — everything was exceptional. Already planning my next trip with them.",
+    initials: "VB",
+  },
+];
+
+
+
+
 export {
   allPlaces,
   ALL_TREKS,
   DIFFICULTY_CONFIG,
   itineraryData,
+  reasons,
+  testimonialsData,
 }

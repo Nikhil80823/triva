@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Section — LIGHT warm sand ──────────────────────── */
+.why-section {
+  background:  #ede6d8;
+  padding:     110px 20px 100px;
+  position:    relative;
+  overflow:    hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.why-section::before {
+  content:  "";
+  position: absolute;
+  inset:    0;
+  background:
+    radial-gradient(ellipse 65% 50% at 50% 0%, rgba(139,111,71,0.10) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 40% at 95% 95%, rgba(107,143,113,0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.why-section::after {
+  content:  "";
+  position: absolute;
+  inset:    0;
+  background-image: radial-gradient(rgba(139,111,71,0.10) 1px, transparent 1px);
+  background-size:  28px 28px;
+  pointer-events:   none;
+}
+
+.why-inner {
+  max-width: 1100px;
+  margin:    0 auto;
+  position:  relative;
+  z-index:   1;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.why-header {
+  text-align:    center;
+  margin-bottom: 72px;
+}
+
+.why-eyebrow {
+  display:        block;
+  font-size:      0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color:          #8b6f47;
+  margin-bottom:  1rem;
+}
+
+.why-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size:   clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 600;
+  color:       #1a1208;
+  margin:      0 0 0.8rem;
+  line-height: 1.1;
+}
+
+.why-heading em {
+  font-style:  italic;
+  font-weight: 400;
+  color:       #6b8f71;
+}
+
+.why-sub {
+  font-size:  0.95rem;
+  color:      #9a8878;
+  margin:     0;
+  max-width:  480px;
+  margin:     0 auto;
+  line-height: 1.6;
+}
+
+.why-divider {
+  display:    block;
+  width:      48px;
+  height:     1px;
+  background: linear-gradient(90deg, transparent, #8b6f47, transparent);
+  margin:     1.2rem auto 0;
+}
+
+/* ── Grid ────────────────────────────────────────────── */
+.why-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   1.5rem;
+}
+
+/* ── Card ────────────────────────────────────────────── */
+.why-card {
+  background:    #ffffff;
+  border:        1px solid rgba(139,111,71,0.12);
+  border-radius: 18px;
+  padding:       36px 30px 32px;
+  position:      relative;
+  overflow:      hidden;
+  transition:    transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+/* Subtle top shimmer */
+.why-card::before {
+  content:    "";
+  position:   absolute;
+  top:        0;
+  left:       0;
+  width:      50%;
+  height:     2px;
+  background: linear-gradient(90deg, #6b8f71, transparent);
+  opacity:    0;
+  transition: opacity 0.35s ease;
+}
+
+.why-card:hover {
+  transform:    translateY(-6px);
+  box-shadow:   0 20px 50px rgba(26,18,8,0.10);
+  border-color: rgba(107,143,113,0.3);
+}
+
+.why-card:hover::before { opacity: 1; }
+
+/* Large muted background number */
+.why-card-num {
+  position:    absolute;
+  bottom:      16px;
+  right:       20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size:   4rem;
+  font-weight: 600;
+  color:       rgba(139,111,71,0.07);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+.why-icon {
+  font-size:     2rem;
+  margin-bottom: 1rem;
+  display:       block;
+  line-height:   1;
+}
+
+.why-title {
+  font-family:   'Cormorant Garamond', serif;
+  font-size:     1.35rem;
+  font-weight:   600;
+  color:         #1a1208;
+  margin:        0 0 0.7rem;
+  line-height:   1.2;
+}
+
+.why-desc {
+  font-size:   0.875rem;
+  color:       #7a6a5a;
+  line-height: 1.7;
+  margin:      0;
+}
+
+/* ── CTA strip ───────────────────────────────────────── */
+.why-cta {
+  margin-top:      72px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             28px;
+  padding:         40px 48px;
+  background:      #1a1208;
+  border-radius:   20px;
+  flex-wrap:       wrap;
+}
+
+.why-cta-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size:   1.5rem;
+  font-style:  italic;
+  color:       #eee8da;
+  margin:      0;
+}
+
+.why-cta-btn {
+  display:        inline-block;
+  text-decoration: none;
+  font-size:      0.7rem;
+  font-weight:    600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding:        13px 30px;
+  border-radius:  30px;
+  background:     #10b981;
+  color:          #fff;
+  transition:     background 0.2s, transform 0.15s;
+  white-space:    nowrap;
+}
+
+.why-cta-btn:hover {
+  background: #059669;
+  transform:  scale(1.04);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .why-section { padding: 80px 16px 70px; }
+  .why-grid    { grid-template-columns: 1fr; }
+  .why-cta     { padding: 28px 24px; flex-direction: column; gap: 16px; text-align: center; }
+}
