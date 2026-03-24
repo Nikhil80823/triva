@@ -68,6 +68,9 @@
   transition: background 0.3s, transform 0.3s;
 }
 .dot.active { background: #fff; transform: scale(1.5); }
+@media (max-width: 768px) {
+   .arrows { bottom: 2rem;left: 2rem  ; right: 2rem; display: flex; justify-content: space-between;}
+}
 
 @media (max-width: 480px) {
   .arrows {display:none; }
@@ -77,11 +80,8 @@
 }
 .hero-explore{
   left: 2rem;
-  bottom: 10rem;
+  bottom: 7rem;
 }
 .hero-title { font-size: 3.2rem; font-weight: 700; margin: 0.25rem 0; }
 .hero-sub   { font-size: 0.9rem; opacity: 0.6; }
-}
-@media (max-width: 768px) {
-   .arrows { bottom: 2rem;left: 2rem  ; right: 2rem; display: flex; justify-content: space-between;}
 }
