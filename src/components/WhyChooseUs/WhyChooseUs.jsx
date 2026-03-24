@@ -9,7 +9,7 @@ export default function WhyChooseUs() {
 
         <div className="why-header">
           <span className="why-eyebrow">Why Trek With Us</span>
-          <h2 className="why-heading">The <em>Triva</em> Difference</h2>
+          <h2 className="why-heading">The <em>Trekora</em> Difference</h2>
           <p className="why-sub">We don't just take you to the mountains. We change how you see them.</p>
           <span className="why-divider" />
         </div>
