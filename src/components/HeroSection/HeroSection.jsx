@@ -4,7 +4,7 @@ import "./Hero.css";
 import leftArrow from "../../assets/hero/left.png";
 import rightArrow from "../../assets/hero/right.png";
 
-const AUTO_SLIDE_INTERVAL = 4000;
+const AUTO_SLIDE_INTERVAL = 5000;
 
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
